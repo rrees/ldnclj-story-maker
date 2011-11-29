@@ -1,11 +1,12 @@
 (ns story-maker.core)
 
-(def nouns ["house" "cat" "kettle" "potato"])
-(def adjectives ["fast" "quiet" "lemony"])
+(defn noun [] (rand-nth ["house" "cat" "kettle" "potato"]))
+(defn adjective [] (rand-nth ["fast" "quiet" "lemony"]))
+(defn place [] (rand-nth ["barn" "castle" "potato shop" "taxidermist" "dojo"]))
 
 (defn hello [name] (str "Hello " name))
 
 (defn story ([]
-	(str "The " (rand-nth adjectives) " " (rand-nth nouns)))
+	(str "The " (adjective) " " (noun)))
 	([name]
-	(str name " was in the barn")))
+	(str name " was in the " (adjective) " " (place))))
